@@ -1,4 +1,4 @@
-## Giphy Seaerch Task
+## Giphy Search Task
 * Clone this repository.
 * Make edits for either the Laravel Portion or the React Portion.
 * Submit a pull request with your finished code.
