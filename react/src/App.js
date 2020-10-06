@@ -1,26 +1,26 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import GiphySearch from "./GiphySearch";
+import SearchResults from "./SearchResults";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+export default class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {searchstring: ''};
+    this.handleSearchChange = this.handleSearchChange.bind(this);
+  }
+
+  handleSearchChange(searchstring) {
+    this.setState({searchstring});
+  }
+
+  render() {
+    const searchstring = this.state.searchstring;
+    return (
+      <div>
+        <GiphySearch textChange={this.handleSearchChange} searchstring={searchstring} />
+        <SearchResults searchstring={searchstring}/>
+      </div>
+    );
+  }
 }
-
-export default App;
